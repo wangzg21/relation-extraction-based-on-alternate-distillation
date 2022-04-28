@@ -1,0 +1,76 @@
+some config:
+data_dir = ./data
+output_dir = ./output
+embedding_path = ./embedding/hlbl-embeddings-scaled.EMBEDDING_SIZE=50.txt
+word_dim = 50
+model_name = CNN
+mode = 1
+seed = 5782
+cuda = 0
+epoch = 20
+dropout = 0.5
+batch_size = 128
+lr = 0.001
+max_len = 100
+pos_dis = 50
+pos_dim = 5
+hidden_size = 100
+filter_num = 200
+window = 3
+L2_decay = 1e-05
+device = cuda:0
+model_dir = ./output/CNN
+--------------------------------------
+start to load data ...
+finish!
+--------------------------------------
+CNN(
+  (word_embedding): Embedding(246123, 50)
+  (pos1_embedding): Embedding(103, 5)
+  (pos2_embedding): Embedding(103, 5)
+  (conv): Conv2d(1, 200, kernel_size=(3, 60), stride=(1, 1), padding=(1, 0))
+  (maxpool): MaxPool2d(kernel_size=(100, 1), stride=(100, 1), padding=0, dilation=1, ceil_mode=False)
+  (tanh): Tanh()
+  (dropout): Dropout(p=0.5, inplace=False)
+  (linear): Linear(in_features=200, out_features=100, bias=True)
+  (dense): Linear(in_features=100, out_features=19, bias=True)
+)
+traning model parameters:
+word_embedding.weight :  torch.Size([246123, 50])
+pos1_embedding.weight :  torch.Size([103, 5])
+pos2_embedding.weight :  torch.Size([103, 5])
+conv.weight :  torch.Size([200, 1, 3, 60])
+conv.bias :  torch.Size([200])
+linear.weight :  torch.Size([100, 200])
+linear.bias :  torch.Size([100])
+dense.weight :  torch.Size([19, 100])
+dense.bias :  torch.Size([19])
+12,365,399 total parameters.
+--------------------------------------
+start to train the model ...
+开始时间/s 1650605693.5609317
+[000] train_loss: 2.821 | dev_loss: 2.829 | micro f1 on dev: 0.5648 | pre on dev: 0.4555 | recall on dev: 0.7430 >>> save models!
+[001] train_loss: 2.216 | dev_loss: 2.218 | micro f1 on dev: 0.5406 | pre on dev: 0.5458 | recall on dev: 0.5757 
+[002] train_loss: 1.863 | dev_loss: 1.865 | micro f1 on dev: 0.3752 | pre on dev: 0.3811 | recall on dev: 0.7335 
+[003] train_loss: 1.534 | dev_loss: 1.550 | micro f1 on dev: 0.5445 | pre on dev: 0.5621 | recall on dev: 0.5898 
+[004] train_loss: 1.311 | dev_loss: 1.375 | micro f1 on dev: 0.6406 | pre on dev: 0.6698 | recall on dev: 0.6403 >>> save models!
+[005] train_loss: 1.115 | dev_loss: 1.235 | micro f1 on dev: 0.7000 | pre on dev: 0.7099 | recall on dev: 0.6960 >>> save models!
+[006] train_loss: 0.951 | dev_loss: 1.142 | micro f1 on dev: 0.7065 | pre on dev: 0.7080 | recall on dev: 0.7151 >>> save models!
+[007] train_loss: 0.826 | dev_loss: 1.077 | micro f1 on dev: 0.7375 | pre on dev: 0.7511 | recall on dev: 0.7291 >>> save models!
+[008] train_loss: 0.705 | dev_loss: 1.029 | micro f1 on dev: 0.7461 | pre on dev: 0.7584 | recall on dev: 0.7367 >>> save models!
+[009] train_loss: 0.614 | dev_loss: 0.985 | micro f1 on dev: 0.7628 | pre on dev: 0.7694 | recall on dev: 0.7583 >>> save models!
+[010] train_loss: 0.530 | dev_loss: 0.957 | micro f1 on dev: 0.7641 | pre on dev: 0.7688 | recall on dev: 0.7621 >>> save models!
+[011] train_loss: 0.461 | dev_loss: 0.937 | micro f1 on dev: 0.7680 | pre on dev: 0.7730 | recall on dev: 0.7654 >>> save models!
+[012] train_loss: 0.413 | dev_loss: 0.947 | micro f1 on dev: 0.7835 | pre on dev: 0.8097 | recall on dev: 0.7599 >>> save models!
+[013] train_loss: 0.349 | dev_loss: 0.921 | micro f1 on dev: 0.7852 | pre on dev: 0.7987 | recall on dev: 0.7738 >>> save models!
+[014] train_loss: 0.316 | dev_loss: 0.935 | micro f1 on dev: 0.7879 | pre on dev: 0.8139 | recall on dev: 0.7649 >>> save models!
+[015] train_loss: 0.276 | dev_loss: 0.923 | micro f1 on dev: 0.7921 | pre on dev: 0.8116 | recall on dev: 0.7759 >>> save models!
+[016] train_loss: 0.244 | dev_loss: 0.907 | micro f1 on dev: 0.7935 | pre on dev: 0.8121 | recall on dev: 0.7770 >>> save models!
+[017] train_loss: 0.224 | dev_loss: 0.929 | micro f1 on dev: 0.8023 | pre on dev: 0.8295 | recall on dev: 0.7781 >>> save models!
+[018] train_loss: 0.196 | dev_loss: 0.908 | micro f1 on dev: 0.7990 | pre on dev: 0.8193 | recall on dev: 0.7804 
+[019] train_loss: 0.184 | dev_loss: 0.922 | micro f1 on dev: 0.8047 | pre on dev: 0.8335 | recall on dev: 0.7786 >>> save models!
+--------------------------------------
+start test ...
+测试开始时间/s 1650605726.518666
+test_loss: 0.922 | macro f1 on test:  0.8047 | p: 0.8335 | r: 0.7786
+结束时间/s 1650605726.773314
