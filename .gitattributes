@@ -1,2 +1,0 @@
-RIFRE-semeval.zip filter=lfs diff=lfs merge=lfs -text
-RIFRE-wiki80.zip filter=lfs diff=lfs merge=lfs -text
